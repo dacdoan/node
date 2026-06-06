@@ -15,6 +15,9 @@ export CXXFLAGS="$CFLAGS"
 make BUILDTYPE=Release -j4
 
 strip -s out/Release/node
+
+cp out/Release/node node
+tar --zstd -cf node.tar.zst node
 ```
 
 ## Install
