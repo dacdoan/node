@@ -16,3 +16,9 @@ make BUILDTYPE=Release -j4
 
 strip -s out/Release/node
 ```
+
+## Install
+```sh
+curl -L https://github.com/dacdoan/node/releases/latest/download/node.tar.zst | tar --zstd -x
+curl -L https://github.com/dacdoan/node/releases/latest/download/node-debug.tar.zst | tar --zstd -x
+```
