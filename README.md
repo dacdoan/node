@@ -1,6 +1,9 @@
 # Build Nodejs
 
 ```sh
+curl -L https://nodejs.org/dist/v24.16.0/node-v24.16.0-linux-x64.tar.xz | tar -xJ
+mv node-v24.16.0-linux-x64 node
+
 # Clone code
 git clone --depth=1 --branch=v24.16.0 https://github.com/nodejs/node.git
 cd node
