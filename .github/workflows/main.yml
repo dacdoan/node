@@ -5,6 +5,7 @@ on:
 env:
   CFLAGS: "-march=x86-64-v3"
   CXXFLAGS: "-march=x86-64-v3"
+  ZSTD_CLEVEL: "19"
 
 jobs:
   build:
