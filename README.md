@@ -20,5 +20,7 @@ strip -s out/Release/node
 ## Install
 ```sh
 curl -L https://github.com/dacdoan/node/releases/latest/download/node.tar.zst | tar --zstd -x
+```
+```sh
 curl -L https://github.com/dacdoan/node/releases/latest/download/node-debug.tar.zst | tar --zstd -x
 ```
