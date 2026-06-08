@@ -13,9 +13,9 @@ git branch -vvv
 export CFLAGS=-march=x86-64-v3
 export CXXFLAGS="$CFLAGS"
 
-docker run --rm -v $PWD:/node -it ubuntu:26.04 /bin/bash
+docker run --rm -v $PWD:/node -e CFLAGS=-march=x86-64-v3 -e CXXFLAGS=-march=x86-64-v3 -it ubuntu:26.04 /bin/bash
 sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
-apt update && apt upgrade
+apt update && apt upgrade -y
 apt install python3 g++ gcc make python3-pip
 apt build-dep nodejs
 
