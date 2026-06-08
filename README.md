@@ -13,7 +13,7 @@ git branch -vvv
 export CFLAGS=-march=x86-64-v3
 export CXXFLAGS="$CFLAGS"
 
-./configure --enable-lto --without-npm --without-amaro --without-corepack --with-intl=none
+./configure --enable-lto --without-npm --without-amaro --without-corepack --with-intl=system-icu
   --without-inspector --without-node-options --without-sqlite # For production
 make BUILDTYPE=Release -j4
 
