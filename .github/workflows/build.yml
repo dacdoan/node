@@ -23,7 +23,7 @@ jobs:
     - name: Build NodeJS for Production
       run: |
         cd "node-$GITHUB_REF_NAME"
-        ./configure --enable-lto --without-npm --without-amaro --without-corepack --shared-zlib --shared-zstd --shared-sqlite --shared-brotli --shared-nghttp2 --shared-openssl --openssl-use-def-ca-store --prefix=/usr --with-intl=none --without-inspector --without-node-options
+        ./configure --enable-lto --without-npm --without-amaro --without-corepack --shared-zlib --shared-zstd --shared-sqlite --shared-brotli --shared-nghttp2 --shared-openssl --openssl-use-def-ca-store --prefix=/usr --with-intl=none --without-inspector --without-node-options --shared-ngtcp2 --shared-nghttp3
         make -j4
         mv out/Release/node .. && cd ..
         strip -s node
@@ -33,7 +33,7 @@ jobs:
     - name: Build NodeJS for Desktop
       run: |
         cd "node-$GITHUB_REF_NAME"
-        ./configure --enable-lto --without-npm --without-amaro --without-corepack --shared-zlib --shared-zstd --shared-sqlite --shared-brotli --shared-nghttp2 --shared-openssl --openssl-use-def-ca-store --prefix=/usr --with-intl=system-icu
+        ./configure --enable-lto --without-npm --without-amaro --without-corepack --shared-zlib --shared-zstd --shared-sqlite --shared-brotli --shared-nghttp2 --shared-openssl --openssl-use-def-ca-store --prefix=/usr --with-intl=system-icu --shared-ngtcp2 --shared-nghttp3
         make -j4
         mv out/Release/node .. && cd ..
         strip -s node
