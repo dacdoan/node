@@ -16,13 +16,13 @@ jobs:
         curl -L "https://nodejs.org/dist/$GITHUB_REF_NAME/node-$GITHUB_REF_NAME.tar.xz" | tar -xJ
     - run: |
         sudo sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
-        sudo apt update && sudo apt upgrade -y
+        sudo apt update
         sudo apt install -y python3 g++ gcc make python3-pip
         sudo apt build-dep nodejs -y
 
     - name: Build NodeJS for Production
       run: |
-        cd $GITHUB_REF_NAME
+        cd "node-$GITHUB_REF_NAME"
         ./configure --enable-lto --without-npm --without-amaro --without-corepack --shared-zlib --shared-zstd --shared-sqlite --shared-brotli --shared-nghttp2 --shared-openssl --openssl-use-def-ca-store --prefix=/usr --with-intl=none --without-inspector --without-node-options
         make -j4
         mv out/Release/node .. && cd ..
@@ -32,7 +32,7 @@ jobs:
 
     - name: Build NodeJS for Desktop
       run: |
-        cd $GITHUB_REF_NAME
+        cd "node-$GITHUB_REF_NAME"
         ./configure --enable-lto --without-npm --without-amaro --without-corepack --shared-zlib --shared-zstd --shared-sqlite --shared-brotli --shared-nghttp2 --shared-openssl --openssl-use-def-ca-store --prefix=/usr --with-intl=system-icu
         make -j4
         mv out/Release/node .. && cd ..
