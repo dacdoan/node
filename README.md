@@ -19,9 +19,9 @@ apt update && apt upgrade
 apt install python3 g++ gcc make python3-pip
 apt build-dep nodejs
 
-./configure --enable-lto --without-npm --without-amaro --without-corepack --shared-zlib --shared-zstd --shared-sqlite --shared-libuv --shared-brotli --shared-nghttp2 --shared-openssl --openssl-use-def-ca-store --prefix=/usr
+./configure --enable-lto --without-npm --without-amaro --without-corepack --shared-zlib --shared-zstd --shared-sqlite --shared-brotli --shared-nghttp2 --shared-openssl --openssl-use-def-ca-store --prefix=/usr
   --with-intl=none --without-inspector --without-node-options # For production
-  --with-intl=system-icu --shared-ngtcp2 --shared-nghttp3 # For local
+  --with-intl=system-icu --shared-ngtcp2 --shared-nghttp3 --shared-libuv # For local
 make BUILDTYPE=Release -j4
 
 strip -s out/Release/node
